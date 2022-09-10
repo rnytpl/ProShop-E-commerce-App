@@ -1,0 +1,18 @@
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.content {
+    margin: auto;
+}
+
+h3 {
+    padding: 1rem;
+}
+
+.Rating span {
+    margin: 0.1rem;
+}
+
