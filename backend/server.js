@@ -1,20 +1,22 @@
 import express from "express";
-import products from "./data/products.js";
+import { Product } from "./models/productModel.js";
+import { Order } from "./models/orderModel.js";
+import { User } from "./models/userModel.js"
 import dotenv from "dotenv";
 import { dbConnect } from "./db/db.js";
-import { User } from "./models/users.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 5000;
 dbConnect();
 
 const app = express();
-app.get("/api/products", (req, res) => {
+app.get("/api/products", async (req, res) => {
+  const products = await Product.find({})
   res.json(products);
 });
 
-app.get("/api/products/:id", (req, res) => {
-  const product = products.find((p) => p._id === req.params.id);
+app.get("/api/products/:id", async (req, res) => {
+  const product = await Product.findById(req.params.id);
   res.json(product);
 });
 
