@@ -1,22 +1,21 @@
 import express from "express";
-import products from "./data/products.js";
+import { Product } from "./models/productModel.js";
 import dotenv from "dotenv";
 import { dbConnect } from "./db/db.js";
-import { User } from "./models/users.js";
-
+import { User } from "./models/userModel.js";
+import productsRoutes from "./routes/productsRoutes.js";
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 dotenv.config();
 const PORT = process.env.PORT || 5000;
 dbConnect();
 
 const app = express();
-app.get("/api/products", (req, res) => {
-  res.json(products);
-});
 
-app.get("/api/products/:id", (req, res) => {
-  const product = products.find((p) => p._id === req.params.id);
-  res.json(product);
-});
+app.use("/api/products", productsRoutes);
+
+app.use(notFound);
+
+app.use(errorHandler);
 
 app.listen(
   PORT,

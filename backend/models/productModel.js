@@ -1,4 +1,5 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
+
 const reviewSchema = mongoose.Schema(
   {
     name: {
@@ -16,7 +17,8 @@ const reviewSchema = mongoose.Schema(
   },
   { timestamps: true }
 );
-const userSchema = mongoose.Schema(
+
+const productSchema = mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -34,7 +36,6 @@ const userSchema = mongoose.Schema(
     brand: {
       type: String,
       required: true,
-      unique: true,
     },
     category: {
       type: String,
