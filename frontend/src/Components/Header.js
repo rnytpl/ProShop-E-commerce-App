@@ -7,7 +7,7 @@ const Header = () => {
     <header>
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container>
-          <LinkContainer to="/">
+          <LinkContainer to="/products">
             <NavbarBrand>ProShop</NavbarBrand>
           </LinkContainer>
 

@@ -5,11 +5,7 @@ const orderSchema = mongoose.Schema(
     user: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-<<<<<<< HEAD
       ref: "User",
-=======
-      ref: 'User',
->>>>>>> 58e41b08847d9d9f744529cc458a207ccd8fc558
     },
     orderItems: [
       {
@@ -20,11 +16,7 @@ const orderSchema = mongoose.Schema(
         product: {
           type: mongoose.Schema.Types.ObjectId,
           required: true,
-<<<<<<< HEAD
           ref: "Product",
-=======
-          ref: 'Product',
->>>>>>> 58e41b08847d9d9f744529cc458a207ccd8fc558
         },
       },
     ],
@@ -79,10 +71,6 @@ const orderSchema = mongoose.Schema(
   {
     timestamps: true,
   }
-<<<<<<< HEAD
 );
-=======
-)
->>>>>>> 58e41b08847d9d9f744529cc458a207ccd8fc558
 
 export const Order = new mongoose.model("Order", orderSchema);

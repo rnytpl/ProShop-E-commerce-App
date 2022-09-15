@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
 import {
   Col,
   Row,
@@ -11,22 +9,32 @@ import {
 } from "react-bootstrap";
 import Rating from "../Components/Rating";
 import { Link, useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getProduct } from "../store/productSlice";
 
 const ProductScreen = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState({});
+  const { products, isLoading } = useSelector((state) => state.product);
+  const product = products.find((p) => p._id === id);
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      const response = await axios(`/api/products/${id}`);
-      setProduct(response.data);
-    };
-    fetchProduct();
-  }, [id]);
+  // useEffect(() => {
+  //   dispatch(getProduct(id));
+
+  // }, []);
+
+  if (isLoading) {
+    return (
+      <div className="loading">
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
 
   return (
     <>
-      <Link className="btn btn-light my-3" to="/">
+      <Link className="btn btn-light my-3" to="/products">
         Go Back
       </Link>
       <Row>

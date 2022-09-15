@@ -1,8 +1,4 @@
 import mongoose from "mongoose";
-<<<<<<< HEAD
-
-=======
->>>>>>> 58e41b08847d9d9f744529cc458a207ccd8fc558
 const reviewSchema = mongoose.Schema(
   {
     name: {
@@ -20,10 +16,6 @@ const reviewSchema = mongoose.Schema(
   },
   { timestamps: true }
 );
-<<<<<<< HEAD
-
-=======
->>>>>>> 58e41b08847d9d9f744529cc458a207ccd8fc558
 const productSchema = mongoose.Schema(
   {
     user: {

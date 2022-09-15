@@ -4,6 +4,7 @@ export const notFound = (req, res, next) => {
   res.status(404);
   next(error);
 };
+
 // If any error occurs, statusCode is pulled off of res
 //  message field is extracted from err and statusCode from response and saved in message object
 // then sent to middleware as a response

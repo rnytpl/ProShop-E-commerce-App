@@ -9,13 +9,8 @@
     "server": "nodemon backend/server",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-<<<<<<< HEAD
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d"
-=======
-    "data:import": "node backend/seeder.js",
-    "data:destroy": "node backend/seeder.js -d"
->>>>>>> 58e41b08847d9d9f744529cc458a207ccd8fc558
   },
   "keywords": [],
   "author": "rnytpl",
