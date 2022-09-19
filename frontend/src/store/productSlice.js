@@ -1,13 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState = {
-  products: [],
-  product: {},
-  isLoading: false,
-  error: null,
-};
-
 const URL = "/api/products";
 
 export const getProducts = createAsyncThunk(
@@ -30,7 +23,6 @@ export const getProduct = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await axios(`${URL}/${id}`);
-      console.log(response);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -43,8 +35,24 @@ export const getProduct = createAsyncThunk(
 
 export const productSlice = createSlice({
   name: "product",
-  initialState: initialState,
-  reducers: {},
+  initialState: {
+    products: [],
+    product: {},
+    isLoading: false,
+    productsError: null,
+    productDetailError: null,
+  },
+  reducers: {
+    addProduct(state, action) {
+      state.product.qty = action.payload;
+    },
+    // incrementQty(state, action) {
+    //   state.product.qty++;
+    // },
+    // decrementQty(state, action) {
+    //   state.product.qty--;
+    // },
+  },
   extraReducers: {
     [getProducts.pending]: (state) => {
       state.isLoading = true;
@@ -55,7 +63,7 @@ export const productSlice = createSlice({
     },
     [getProducts.rejected]: (state, action) => {
       state.isLoading = false;
-      state.error = action.payload;
+      state.productsError = action.payload;
     },
     [getProduct.pending]: (state) => {
       state.isLoading = true;
@@ -63,10 +71,11 @@ export const productSlice = createSlice({
     [getProduct.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.product = action.payload;
+      state.productDetailError = null;
     },
     [getProduct.rejected]: (state, action) => {
       state.isLoading = false;
-      state.error = action.payload;
+      state.productDetailError = action.payload;
     },
   },
 });

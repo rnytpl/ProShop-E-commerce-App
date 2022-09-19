@@ -1,6 +1,6 @@
 import React from "react";
 
-const Rating = ({ value, text, color }) => {
+export const Rating = ({ value, text, color }) => {
   return (
     <div className="Rating">
       <span>
@@ -62,8 +62,3 @@ const Rating = ({ value, text, color }) => {
 Rating.defaultProps = {
   color: "orange",
 };
-
-export default Rating;
-
-/* If value is smaller than 2 and equal to 1.5, half star, otherwise full star
- */
