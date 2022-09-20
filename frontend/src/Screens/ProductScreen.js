@@ -32,15 +32,9 @@ const ProductScreen = () => {
     dispatch(getProduct(id));
   }, [dispatch, id]);
 
-  const incrementHandler = () => {
-    dispatch(productActions.incrementQty());
-  };
-  const decrementQtyHandler = () => {
-    dispatch(productActions.decrementQty());
-  };
-
   const addItemToCartHandler = () => {
     dispatch(cartActions.addItemToCart({ product, qty }));
+    navigate("/cart")
   };
 
   if (isLoading) {
@@ -137,7 +131,6 @@ const ProductScreen = () => {
                       </Col>
                     </Row>
                   </ListGroup.Item>
-
                   <ListGroupItem className="text-center">
                     <Button
                       onClick={addItemToCartHandler}

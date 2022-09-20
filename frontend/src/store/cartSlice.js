@@ -18,9 +18,10 @@ export const cartSlice = createSlice({
       if (!existingItem) {
         state.cartItems.push({ ...newItem, qty: qty });
         state.totalQty++;
+        state.totalAmount = state.totalAmount + (newItem.price * qty)
       } else {
         existingItem.qty += qty;
-        state.totalQty++;
+        state.totalAmount = state.totalAmount + (existingItem.price * qty)
       }
     },
   },
