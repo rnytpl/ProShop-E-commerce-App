@@ -17,7 +17,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getProduct } from "../store/productSlice";
 import { cartActions } from "../store/cartSlice";
-import { productActions } from "../store/productSlice";
 
 const ProductScreen = () => {
   const navigate = useNavigate();

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../store/productSlice";
 import { Message } from "../Components/Message";
 import { Loader } from "../Components/Loader";
+
 const HomeScreen = () => {
   const { products, isLoading, productsError } = useSelector(
     (state) => state.product
