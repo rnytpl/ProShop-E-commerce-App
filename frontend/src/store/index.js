@@ -28,6 +28,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store)
-
-
-// Here is my way of implementing redux inside the project :
