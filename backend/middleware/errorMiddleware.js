@@ -1,4 +1,5 @@
-//
+// If a url is tried to be accessed but it doesnt exist,
+// Take the url typed in search bar and throw an error with a 404 status code
 export const notFound = (req, res, next) => {
   const error = new Error(`Not Found - ${req.originalUrl}`);
   res.status(404);
